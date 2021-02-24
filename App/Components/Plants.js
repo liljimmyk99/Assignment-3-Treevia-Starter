@@ -10,7 +10,13 @@ export default function Plants(props) {
 
   return (
     <View >
-      {/* FlatList or SectionList */}
+      <FlatList
+        data={props.plants}
+        renderItem={renderPlant}
+        keyExtractor={(item,index) => {
+          return item + index.toString()
+        }}
+      />
     </View>
   )
 }

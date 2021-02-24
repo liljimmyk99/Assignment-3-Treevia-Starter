@@ -5,15 +5,16 @@ const queryString = require('query-string'); //Importing JavaScript library from
 // this will call the api and return list of objects
 const retrieveDataFromAPI = async (endpointurl) => {
   try {
+    // NOT CALLING API BELOW vvvvvv
     // console.log("api url: " + endpointurl)
-    const response = await fetch(endpointurl)
-    let responsejson = await response.json()
+    //const response = await fetch(endpointurl)
+    //let responsejson = await response.json()
 
-    const plants = responsejson.data
+    //const plants = responsejson.data
 
     // you can uncomment this line (and comment out lines above)
     // to get test data without making API calls
-    // const plants = testdata.data
+    const plants = testdata.data
     const result = [];
 
     for (const plant of plants) {
@@ -61,7 +62,7 @@ const APIRequest = {
     }
     parameters = queryString.stringify(parameters);
     return await retrieveDataFromAPI(AppConfig.plantList + '?' + parameters)
-
+    
   },
 }
 export default APIRequest;
